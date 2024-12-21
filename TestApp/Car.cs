@@ -2,7 +2,7 @@
 
 namespace TestApp
 {
-    public class BaseCar : ICarBody , ICarFeature
+    public class BaseCar : ICarBody, ICarFeature
     {
         //default ctor
         public BaseCar()
@@ -60,6 +60,9 @@ namespace TestApp
             return false;
         }
 
-       
+        public int enginePower()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

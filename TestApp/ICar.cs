@@ -10,6 +10,8 @@
 
         int MakeYear();
 
+        int enginePower();
+
       
     }
 
