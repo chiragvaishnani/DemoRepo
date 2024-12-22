@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "Polymorphism\Polymorphism.csproj", "{DBF91DC4-D9D7-4BB1-9109-860FBA9633E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{BFEBE949-E220-40FA-A018-F321DBAEAB57}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DBF91DC4-D9D7-4BB1-9109-860FBA9633E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBF91DC4-D9D7-4BB1-9109-860FBA9633E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBF91DC4-D9D7-4BB1-9109-860FBA9633E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFEBE949-E220-40FA-A018-F321DBAEAB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFEBE949-E220-40FA-A018-F321DBAEAB57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFEBE949-E220-40FA-A018-F321DBAEAB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFEBE949-E220-40FA-A018-F321DBAEAB57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
