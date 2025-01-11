@@ -9,3 +9,11 @@
 /TestApp/obj
 /Common/bin/Debug/net9.0
 /Common/obj
+/DIApp/bin/Debug/net9.0
+/DIApp/obj
+/DIDemoApp/bin/Debug/net9.0
+/DIDemoApp/obj
+/TaskManagement/bin/Debug/net9.0
+/TaskManagement/obj
+/TaskManagementWebAPi/bin/Debug/net8.0
+/TaskManagementWebAPi/obj
