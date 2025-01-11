@@ -1,0 +1,303 @@
+USE [master]
+GO
+
+/****** Object:  Database [test]    Script Date: 6/21/2023 6:48:43 PM ******/
+CREATE DATABASE [test]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'test', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\test.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'test_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\test_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [test].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+
+ALTER DATABASE [test] SET ANSI_NULL_DEFAULT OFF 
+GO
+
+ALTER DATABASE [test] SET ANSI_NULLS OFF 
+GO
+
+ALTER DATABASE [test] SET ANSI_PADDING OFF 
+GO
+
+ALTER DATABASE [test] SET ANSI_WARNINGS OFF 
+GO
+
+ALTER DATABASE [test] SET ARITHABORT OFF 
+GO
+
+ALTER DATABASE [test] SET AUTO_CLOSE OFF 
+GO
+
+ALTER DATABASE [test] SET AUTO_SHRINK OFF 
+GO
+
+ALTER DATABASE [test] SET AUTO_UPDATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [test] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+
+ALTER DATABASE [test] SET CURSOR_DEFAULT  GLOBAL 
+GO
+
+ALTER DATABASE [test] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+
+ALTER DATABASE [test] SET NUMERIC_ROUNDABORT OFF 
+GO
+
+ALTER DATABASE [test] SET QUOTED_IDENTIFIER OFF 
+GO
+
+ALTER DATABASE [test] SET RECURSIVE_TRIGGERS OFF 
+GO
+
+ALTER DATABASE [test] SET  DISABLE_BROKER 
+GO
+
+ALTER DATABASE [test] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+
+ALTER DATABASE [test] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+
+ALTER DATABASE [test] SET TRUSTWORTHY OFF 
+GO
+
+ALTER DATABASE [test] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+
+ALTER DATABASE [test] SET PARAMETERIZATION SIMPLE 
+GO
+
+ALTER DATABASE [test] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+
+ALTER DATABASE [test] SET HONOR_BROKER_PRIORITY OFF 
+GO
+
+ALTER DATABASE [test] SET RECOVERY SIMPLE 
+GO
+
+ALTER DATABASE [test] SET  MULTI_USER 
+GO
+
+ALTER DATABASE [test] SET PAGE_VERIFY CHECKSUM  
+GO
+
+ALTER DATABASE [test] SET DB_CHAINING OFF 
+GO
+
+ALTER DATABASE [test] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+
+ALTER DATABASE [test] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+
+ALTER DATABASE [test] SET DELAYED_DURABILITY = DISABLED 
+GO
+
+ALTER DATABASE [test] SET QUERY_STORE = OFF
+GO
+
+ALTER DATABASE [test] SET  READ_WRITE 
+GO
+
+
+USE [test]
+GO
+/****** Object:  Table [dbo].[TaskList]  ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TaskList](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[TaskName] [nvarchar](100) NULL,
+	[TaskDescription] [varchar](100) NULL,
+	[TaskStatusId] [int] NULL,
+ CONSTRAINT [PK_Task] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TaskStatus]      ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TaskStatus](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[TaskStatus] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_TaskStatus] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[TaskList] ON 
+GO
+INSERT [dbo].[TaskList] ([Id], [TaskName], [TaskDescription], [TaskStatusId]) VALUES (7, N'test356', N'TEst 633', 1)
+
+SET IDENTITY_INSERT [dbo].[TaskList] OFF
+GO
+SET IDENTITY_INSERT [dbo].[TaskStatus] ON 
+GO
+INSERT [dbo].[TaskStatus] ([Id], [TaskStatus]) VALUES (1, N'New')
+GO
+INSERT [dbo].[TaskStatus] ([Id], [TaskStatus]) VALUES (2, N'InProgress')
+GO
+INSERT [dbo].[TaskStatus] ([Id], [TaskStatus]) VALUES (3, N'Completed')
+GO
+SET IDENTITY_INSERT [dbo].[TaskStatus] OFF
+GO
+/****** Object:  StoredProcedure [dbo].[AddTask]    ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+create PROCEDURE [dbo].[AddTask]
+@TaskName			VARCHAR(100)
+,@TaskDescription	VARCHAR(100)
+,@TaskStatusId		INT
+	 
+AS
+BEGIN
+	 
+	SET NOCOUNT ON;
+	
+	INSERT INTO TaskList
+	(
+		TaskDescription
+		,TaskName
+		,TaskStatusId
+	)
+	VALUES
+	(
+		@TaskDescription
+		,@TaskName
+		,@TaskStatusId
+	);
+	
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteTask]  ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+create PROCEDURE [dbo].[DeleteTask]
+@Id		INT	 
+AS
+BEGIN
+	 
+	SET NOCOUNT ON;	
+	DELETE FROM TaskList WHERE Id = @Id;	
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[EditTask]  ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+create PROCEDURE [dbo].[EditTask]
+@Id		INT
+,@TaskName			VARCHAR(100)
+,@TaskDescription	VARCHAR(100)
+,@TaskStatusId		INT
+	 
+AS
+BEGIN
+	 
+	SET NOCOUNT ON;
+	
+	UPDATE TaskList
+	SET
+		TaskDescription = @TaskDescription
+		,TaskName = @TaskName
+		,TaskStatusId = @TaskStatusId
+	WHERE Id = @Id;	
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetTaskById]  ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+CREATE PROCEDURE [dbo].[GetTaskById]
+@Id INT
+	 
+AS
+BEGIN
+	 
+	SET NOCOUNT ON;
+	   
+	SELECT tl.*, ts.TaskStatus AS StatusName FROM TaskList AS tl LEFT JOIN TaskStatus AS ts ON tl.TaskStatusId = ts.Id 
+	WHERE tl.Id = @Id
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetTaskByName]  ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+create PROCEDURE [dbo].[GetTaskByName]
+ @TaskName VARCHAR(100)
+AS
+BEGIN
+	 
+	SET NOCOUNT ON;	
+	SELECT * FROM TaskList WHERE TaskName = @TaskName
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetTaskList]  ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+CREATE PROCEDURE [dbo].[GetTaskList]
+	 
+AS
+BEGIN
+	 
+	SET NOCOUNT ON;
+	   
+	SELECT tl.*, ts.TaskStatus AS StatusName FROM TaskList AS tl LEFT JOIN TaskStatus AS ts ON tl.TaskStatusId = ts.Id 
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetTaskStatusList]  ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ 
+CREATE PROCEDURE [dbo].[GetTaskStatusList]
+ 
+AS
+BEGIN
+	 
+	SET NOCOUNT ON;	
+	SELECT Id, TaskStatus AS StatusName FROM TaskStatus
+
+END
+GO

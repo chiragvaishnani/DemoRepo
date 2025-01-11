@@ -1,0 +1,51 @@
+﻿@using TaskManagement.Model;
+@model List<TaskModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+<link href="~/css/index.css" rel="stylesheet" />
+<script src="~/js/task.js"></script>
+
+<a href="@Url.Action("Insert","Task")" class="btn btn-primary"><sapn class="far fa-circle-plus">Add new</sapn></a>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            @if (Model.Count > 0)
+            {
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.TaskName</td>
+                                <td>@item.TaskDescription</td>
+                                <td>@item.StatusName</td>
+                                <td>
+                                    <a href="@Url.Action("Edit","Task", new {id = item.Id})" class="btn btn-success"><sapn class="fas fa-edit">Edit</sapn></a>
+                                    <a href="@Url.Action("View","Task", new {id = item.Id})" class="btn btn-secondary"><sapn class="fas fa-eye">View</sapn></a>
+                                    <button type="button" class="btn btn-danger" onclick="DeleteTask(@item.Id)"><sapn class="far fa-trash-alt">Delete</sapn></button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <span>No record found!</span>
+            }
+        </div>
+    </div>
+</div>
+
