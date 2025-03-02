@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TaskManagementWebAPi.Models;
+using TaskManagement.Models.Models;
 using TaskManagementWebAPI.Repository;
 
 namespace TaskManagementWebAPI.Controllers
@@ -28,7 +28,7 @@ namespace TaskManagementWebAPI.Controllers
                 return BadRequest("Id is not valid");
         }
 
-        [HttpGet("GetAllTask")]
+        [HttpGet("GetAllTask1")]
         public async Task<ActionResult<List<TaskModel>>> GetAllTask()
         {
             var result = await _taskRepository.GetTaskList();
@@ -36,7 +36,7 @@ namespace TaskManagementWebAPI.Controllers
         }
 
 
-        [HttpDelete]
+        [HttpDelete("DeleteTask/{id}")]
         public async Task<ActionResult<bool>> DeleteTask(int id)
         {
             if (id > 0)
@@ -62,13 +62,13 @@ namespace TaskManagementWebAPI.Controllers
                     return result == 0 ? Ok(result) : BadRequest($"Error occurred, try again!");
                 }
                 else
-                    return BadRequest($"{model.TaskName} is already exist!");
+                    return BadRequest($"{model.TaskName} already exists!");
             }
             else
                 return BadRequest(string.Join(',', ModelState.Values.SelectMany(v => v.Errors.Select(b => b.ErrorMessage))));
         }
 
-        [HttpPost("UpdateTask")]
+        [HttpPut("UpdateTask")]
         public async Task<ActionResult> UpdateTask([FromBody] TaskModel model)
         {
             if (ModelState.IsValid)
@@ -79,6 +79,13 @@ namespace TaskManagementWebAPI.Controllers
             }
             else
                 return BadRequest(string.Join(',', ModelState.Values.SelectMany(v => v.Errors.Select(b => b.ErrorMessage))));
+        }
+
+        [HttpGet("GetTaskStatusList")]
+        public async Task<ActionResult<List<TaskStatusModel>>> GetTaskStatusList()
+        {
+            var result = await _taskRepository.GetTaskStatusList();
+            return Ok(result);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using TaskManagementWebAPi.Models;
+﻿using TaskManagement.Models.Models;
 
 namespace TaskManagementWebAPI.Repository
 {

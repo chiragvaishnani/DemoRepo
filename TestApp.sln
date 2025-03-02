@@ -13,9 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIApp", "C:\Users\chira\sou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIDemoApp", "C:\Users\chira\source\repos\TestApp\DIDemoApp\DIDemoApp.csproj", "{2997A1B3-7E6F-D724-E99C-ED7E2D98445C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement", "C:\Users\chira\source\repos\TestApp\TaskManagement\TaskManagement.csproj", "{A2DAF497-BEB5-9037-DF27-517B232C456D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement.Models", "TaskManagement.Models\TaskManagement.Models.csproj", "{4AC47EEA-995E-40B8-80BD-98D69827833F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementWebAPI", "C:\Users\chira\source\repos\TestApp\TaskManagementWebAPi\TaskManagementWebAPI.csproj", "{0B303391-BA98-1347-2899-A341053ED345}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagementWebAPI", "TaskManagementWebAPi\TaskManagementWebAPI.csproj", "{3219485D-068A-03C0-7CB2-D6EFB9ABB3BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManagement", "TaskManagement\TaskManagement.csproj", "{0573BCCE-F888-C21E-FEEE-4567D6F83AEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,16 +45,23 @@ Global
 		{2997A1B3-7E6F-D724-E99C-ED7E2D98445C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2997A1B3-7E6F-D724-E99C-ED7E2D98445C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2997A1B3-7E6F-D724-E99C-ED7E2D98445C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2DAF497-BEB5-9037-DF27-517B232C456D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2DAF497-BEB5-9037-DF27-517B232C456D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2DAF497-BEB5-9037-DF27-517B232C456D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2DAF497-BEB5-9037-DF27-517B232C456D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B303391-BA98-1347-2899-A341053ED345}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B303391-BA98-1347-2899-A341053ED345}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B303391-BA98-1347-2899-A341053ED345}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B303391-BA98-1347-2899-A341053ED345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC47EEA-995E-40B8-80BD-98D69827833F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC47EEA-995E-40B8-80BD-98D69827833F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC47EEA-995E-40B8-80BD-98D69827833F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC47EEA-995E-40B8-80BD-98D69827833F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3219485D-068A-03C0-7CB2-D6EFB9ABB3BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3219485D-068A-03C0-7CB2-D6EFB9ABB3BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3219485D-068A-03C0-7CB2-D6EFB9ABB3BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3219485D-068A-03C0-7CB2-D6EFB9ABB3BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0573BCCE-F888-C21E-FEEE-4567D6F83AEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0573BCCE-F888-C21E-FEEE-4567D6F83AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0573BCCE-F888-C21E-FEEE-4567D6F83AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0573BCCE-F888-C21E-FEEE-4567D6F83AEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B9FE5208-8107-422C-979F-245493BA4D13}
 	EndGlobalSection
 EndGlobal

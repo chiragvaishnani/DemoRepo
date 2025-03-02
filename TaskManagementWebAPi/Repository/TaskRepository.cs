@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using System.Data;
-using TaskManagementWebAPi.Models;
+using TaskManagement.Models.Models;
 using TaskManagementWebAPI.Data;
 
 namespace TaskManagementWebAPI.Repository

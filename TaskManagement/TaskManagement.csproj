@@ -29,4 +29,8 @@
     <Folder Include="SQL\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="D:\Project\Demo\TaskManagement.Models\TaskManagement.Models.csproj" />
+  </ItemGroup>
+
 </Project>

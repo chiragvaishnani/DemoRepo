@@ -17,3 +17,7 @@
 /TaskManagement/obj
 /TaskManagementWebAPi/bin/Debug/net8.0
 /TaskManagementWebAPi/obj
+/TaskManagement.Models/bin/Debug/net9.0
+/TaskManagement.Models/obj
+/TestApp.slnLaunch.user
+/TaskManagementWebAPi/bin/Debug/net9.0

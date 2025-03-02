@@ -1,7 +1,7 @@
 ﻿using Dapper;
 using System.Data;
 using TaskManagement.Data;
-using TaskManagement.Model;
+using TaskManagement.Models.Models;
 
 namespace TaskManagement.Repository
 {

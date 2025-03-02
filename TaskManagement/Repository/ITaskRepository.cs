@@ -1,4 +1,4 @@
-﻿using TaskManagement.Model;
+﻿using TaskManagement.Models.Models;
 
 namespace TaskManagement.Repository
 {
